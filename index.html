@@ -16,24 +16,36 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1><strong>Code Journal</strong></h1>
-      </div>
-    </header>
+    <div class="container header">
+      <h1><strong>Code Journal</strong></h1>
+    </div>
     <main class="container">
-      <div class="form" data-view="entry-form">
-        <h1>New Entry</h1>
-        <img
-          class="column-full row"
-          src="./images/placeholder-image-square.jpg" />
-        <label class="label" for="imageTitle">Title</label>
-        <input id="imageTitle" type="text" class="input" />
-        <label class="label" for="ImageURL">Photo URL</label>
-        <input id="imageURL" type="text" class="input" />
-        <label class="label" for="notes">Notes</label>
-        <textarea id="notes" class="input"></textarea>
-        <button class="button">Save</button>
+      <div class="div" data-view="entry-form">
+        <form id="entry-form">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
+          <div class="row">
+            <div class="column-half image-wrapper">
+              <img
+                src="./images/placeholder-image-square.jpg"
+                alt="placeholder" />
+            </div>
+            <div class="column-half">
+              <label for="imageTitle">Title</label>
+              <input class="image-title" id="image-title" type="text" />
+              <label for="image-url">Photo URL</label>
+              <input class="image-url" id="image-url" type="text" />
+            </div>
+          </div>
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <textarea id="notes" class="notes"></textarea>
+          </div>
+          <div class="column-full button">
+            <button>Save</button>
+          </div>
+        </form>
       </div>
       <div data-view="entries" class="hidden"></div>
     </main>

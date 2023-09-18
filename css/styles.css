@@ -1,54 +1,46 @@
-.hidden {
-  display: none !important;
-}
-
-.container {
-  display: flex;
-  margin: 0;
-}
-
 h1 {
   margin: 0;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.header {
   background-color: rgb(76, 38, 118);
   min-height: 2.2rem;
   color: rgb(249, 244, 249);
 }
 
-.label {
-  display: flex;
-  width: 100%;
-  padding: 0.5rem 0 1rem;
-}
-
-.input {
-  display: flex;
+img {
   width: 100%;
 }
 
-.form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.image-title {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.image-url {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.notes {
+  width: 100%;
+  resize: none;
+  height: 6rem;
+}
+
+button {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  background-color: rgb(76, 38, 118);
+  color: rgb(249, 244, 249);
 }
 
 .button {
-  margin: 0.5rem;
-  padding: 0.2rem;
-  background-color: rgb(76, 38, 118);
-  color: rgb(249, 244, 249);
-  align-self: flex-end;
-}
-
-#notes {
-  resize: none;
-  height: 6rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 main.container {
@@ -58,24 +50,4 @@ main.container {
 .row {
   display: flex;
   flex-wrap: wrap;
-}
-
-.column-full,
-.column-half {
-  width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 900px;
-  }
-
-  .column-full,
-  .column-half {
-    padding: 0 0.75rem;
-  }
-
-  .column-half {
-    width: 50%;
-  }
 }
