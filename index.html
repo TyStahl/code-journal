@@ -20,7 +20,18 @@
       <div class="container"><strong>Code Journal</strong></div>
     </header>
     <main class="container">
-      <div data-view="entry-form"></div>
+      <div data-view="entry-form">
+        <h1>New Entry</h1>
+        <img
+          class="column-full row"
+          src="./images/placeholder-image-square.jpg" />
+        <label for="imageTitle">Title</label>
+        <input id="imageTitle" type="text" class="row column-full" />
+        <label for="ImageURL">Photo URL</label>
+        <input id="imageURL" type="text" class="row column-full" />
+        <label for="notes">Notes</label>
+        <textarea id="notes" class="row column-full"></textarea>
+      </div>
       <div data-view="entries" class="hidden"></div>
     </main>
     <script src="js/data.js"></script>
