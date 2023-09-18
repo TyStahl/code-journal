@@ -17,20 +17,23 @@
   </head>
   <body>
     <header>
-      <div class="container"><strong>Code Journal</strong></div>
+      <div class="container">
+        <h1><strong>Code Journal</strong></h1>
+      </div>
     </header>
     <main class="container">
-      <div data-view="entry-form">
+      <div class="form" data-view="entry-form">
         <h1>New Entry</h1>
         <img
           class="column-full row"
           src="./images/placeholder-image-square.jpg" />
-        <label for="imageTitle">Title</label>
-        <input id="imageTitle" type="text" class="row column-full" />
-        <label for="ImageURL">Photo URL</label>
-        <input id="imageURL" type="text" class="row column-full" />
-        <label for="notes">Notes</label>
-        <textarea id="notes" class="row column-full"></textarea>
+        <label class="label" for="imageTitle">Title</label>
+        <input id="imageTitle" type="text" class="input" />
+        <label class="label" for="ImageURL">Photo URL</label>
+        <input id="imageURL" type="text" class="input" />
+        <label class="label" for="notes">Notes</label>
+        <textarea id="notes" class="input"></textarea>
+        <button class="button">Save</button>
       </div>
       <div data-view="entries" class="hidden"></div>
     </main>

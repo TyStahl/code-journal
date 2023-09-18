@@ -1,0 +1,81 @@
+.hidden {
+  display: none !important;
+}
+
+.container {
+  display: flex;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(76, 38, 118);
+  min-height: 2.2rem;
+  color: rgb(249, 244, 249);
+}
+
+.label {
+  display: flex;
+  width: 100%;
+  padding: 0.5rem 0 1rem;
+}
+
+.input {
+  display: flex;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.button {
+  margin: 0.5rem;
+  padding: 0.2rem;
+  background-color: rgb(76, 38, 118);
+  color: rgb(249, 244, 249);
+  align-self: flex-end;
+}
+
+#notes {
+  resize: none;
+  height: 6rem;
+}
+
+main.container {
+  background-color: rgb(238, 238, 238);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-full,
+.column-half {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+
+  .column-full,
+  .column-half {
+    padding: 0 0.75rem;
+  }
+
+  .column-half {
+    width: 50%;
+  }
+}
