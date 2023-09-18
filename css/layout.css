@@ -4,8 +4,17 @@
 
 .container {
   max-width: 575px;
-  margin: 0 auto;
+
+  /* margin: 0 auto; */
   padding: 0 1.5rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: rgb(76, 38, 118);
+  min-height: 2.2rem;
+  color: rgb(249, 244, 249);
 }
 
 .row {
