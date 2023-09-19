@@ -5,7 +5,7 @@ h1 {
 
 .header {
   background-color: rgb(76, 38, 118);
-  min-height: 2.2rem;
+  height: 4rem;
   color: rgb(249, 244, 249);
 }
 
@@ -34,6 +34,7 @@ img {
 button {
   margin: 0.5rem 0;
   padding: 0.5rem;
+  border-radius: 5px;
   background-color: rgb(76, 38, 118);
   color: rgb(249, 244, 249);
 }
@@ -45,9 +46,4 @@ button {
 
 main.container {
   background-color: rgb(238, 238, 238);
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
 }
