@@ -1,12 +1,5 @@
 h1 {
-  margin: 0;
-  padding: 1rem 0;
-}
-
-.header {
-  background-color: rgb(76, 38, 118);
-  height: 4rem;
-  color: rgb(249, 244, 249);
+  margin-top: 0;
 }
 
 img {
@@ -46,4 +39,10 @@ button {
 
 main.container {
   background-color: rgb(238, 238, 238);
+}
+
+header.container {
+  background-color: rgb(76, 38, 118);
+  color: rgb(249, 244, 249);
+  height: 4rem;
 }
