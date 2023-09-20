@@ -61,3 +61,5 @@ document.addEventListener(
     }
   }
 );
+
+// function toggleNoEntries()
