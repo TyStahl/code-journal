@@ -21,21 +21,16 @@ $entryForm.addEventListener('submit', function submitForm(event) {
 });
 
 function renderEntry(entry) {
-  const $unorderedList = document.createElement('ul');
-
   const $listItem = document.createElement('li');
   $listItem.setAttribute('class', 'row');
-  $unorderedList.appendChild($listItem);
 
   const $columnHalf1 = document.createElement('div');
   $columnHalf1.setAttribute('class', 'column-half');
   $listItem.appendChild($columnHalf1);
 
   const $img = document.createElement('img');
-  $img.setAttribute(
-    'src',
-    'https://archives.bulbagarden.net/media/upload/4/4a/0025Pikachu.png'
-  );
+  $img.setAttribute('src', data.entries[0].imageUrl);
+  // $img.setAttribute('src', 'https://archives.bulbagarden.net/media/upload/4/4a/0025Pikachu.png');
   $columnHalf1.appendChild($img);
 
   const $columnHalf2 = document.createElement('div');
@@ -44,14 +39,24 @@ function renderEntry(entry) {
   $listItem.appendChild($columnHalf2);
 
   const $h3Title = document.createElement('h3');
-  $h3Title.textConent = 'Pikachu';
+  $h3Title.textContent = data.entries[0].title;
   $columnHalf2.appendChild($h3Title);
 
   const $pNotes = document.createElement('p');
-  $pNotes.textContent = 'Thunderbolt!';
+  $pNotes.textContent = data.entries[0].notes;
   $columnHalf2.appendChild($pNotes);
 
-  return $unorderedList;
+  return $listItem;
 }
-
 renderEntry();
+
+// document.addEventListener('DOMContentLoaded', function handleDOMContentLoaded(event){
+// let $journalEntry;
+// const $unorderedList = document.querySelector('ul');
+
+// for (let i = 0; i < data.entries.length; i++){
+//     $journalEntry = renderEntry(data.entries[i]);
+//     $unorderedList.appendChild($journalEntry);
+//   }
+// }
+// );
