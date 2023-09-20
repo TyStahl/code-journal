@@ -48,15 +48,16 @@ function renderEntry(entry) {
 
   return $listItem;
 }
-renderEntry();
 
-// document.addEventListener('DOMContentLoaded', function handleDOMContentLoaded(event){
-// let $journalEntry;
-// const $unorderedList = document.querySelector('ul');
+document.addEventListener(
+  'DOMContentLoaded',
+  function handleDOMContentLoaded(event) {
+    let $journalEntry;
+    const $unorderedList = document.querySelector('ul');
 
-// for (let i = 0; i < data.entries.length; i++){
-//     $journalEntry = renderEntry(data.entries[i]);
-//     $unorderedList.appendChild($journalEntry);
-//   }
-// }
-// );
+    for (let i = 0; i < data.entries.length; i++) {
+      $journalEntry = renderEntry(data.entries[i]);
+      $unorderedList.appendChild($journalEntry);
+    }
+  }
+);
