@@ -62,4 +62,10 @@ document.addEventListener(
   }
 );
 
-// function toggleNoEntries()
+function toggleNoEntries() {
+  const $noEntries = document.querySelector('#no-entries');
+  if (data.entries === []) {
+    $noEntries.className = 'hidden';
+  }
+}
+toggleNoEntries();
