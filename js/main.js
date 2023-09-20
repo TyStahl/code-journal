@@ -70,18 +70,23 @@ function toggleNoEntries() {
 }
 toggleNoEntries();
 
-function viewSwap(entries) {
-  const $showEntryForm = document.querySelector("[data-view='entry-form']");
-  const $showEntries = document.querySelector("[data-view='entries']");
-  if (entries === 'entries') {
-    $showEntries.className = 'div';
+const $showEntryForm = document.querySelector("[data-view='entry-form']");
+const $showEntries = document.querySelector("[data-view='entries']");
+function viewSwap(viewname) {
+  if (viewname === 'entries') {
+    $showEntries.className = '';
     $showEntryForm.className = 'hidden';
     data.view = 'entries';
-  } else if (entries === 'entry-form') {
+  } else if (viewname === 'entry-form') {
     $showEntries.className = 'hidden';
-    $showEntryForm.className = 'div';
+    $showEntryForm.className = '';
     data.view = 'entry-form';
   }
 }
 
-viewSwap();
+const $entriesNav = document.querySelector('.nav');
+
+$entriesNav.addEventListener('click', function handleNavClick() {
+  const whichView = $showEntries.getAttribute('data-view');
+  viewSwap(whichView);
+});
