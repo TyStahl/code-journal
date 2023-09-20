@@ -29,7 +29,7 @@ function renderEntry(entry) {
   $listItem.appendChild($columnHalf1);
 
   const $img = document.createElement('img');
-  $img.setAttribute('src', data.entries[0].imageUrl);
+  $img.setAttribute('src', entry.imageUrl);
   // $img.setAttribute('src', 'https://archives.bulbagarden.net/media/upload/4/4a/0025Pikachu.png');
   $columnHalf1.appendChild($img);
 
@@ -39,11 +39,11 @@ function renderEntry(entry) {
   $listItem.appendChild($columnHalf2);
 
   const $h3Title = document.createElement('h3');
-  $h3Title.textContent = data.entries[0].title;
+  $h3Title.textContent = entry.title;
   $columnHalf2.appendChild($h3Title);
 
   const $pNotes = document.createElement('p');
-  $pNotes.textContent = data.entries[0].notes;
+  $pNotes.textContent = entry.notes;
   $columnHalf2.appendChild($pNotes);
 
   return $listItem;
