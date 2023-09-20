@@ -69,3 +69,19 @@ function toggleNoEntries() {
   }
 }
 toggleNoEntries();
+
+function viewSwap(entries) {
+  const $showEntryForm = document.querySelector("[data-view='entry-form']");
+  const $showEntries = document.querySelector("[data-view='entries']");
+  if (entries === 'entries') {
+    $showEntries.className = 'div';
+    $showEntryForm.className = 'hidden';
+    data.view = 'entries';
+  } else if (entries === 'entry-form') {
+    $showEntries.className = 'hidden';
+    $showEntryForm.className = 'div';
+    data.view = 'entry-form';
+  }
+}
+
+viewSwap();
