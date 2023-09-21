@@ -65,13 +65,16 @@ document.addEventListener(
       $journalEntry = renderEntry(data.entries[i]);
       $unorderedList.appendChild($journalEntry);
     }
+    const previousPage = data.view;
+    viewSwap(previousPage);
+    toggleNoEntries();
   }
 );
 
 const $dataZero = document.querySelector('#data-zero');
 function toggleNoEntries() {
   if (data.entries.length === 0) {
-    $dataZero.setAttribute('class', '.idden');
+    $dataZero.setAttribute('class', '.hidden');
   } else {
     $dataZero.setAttribute('class', '');
   }
