@@ -4,6 +4,7 @@ const $img = document.querySelector('img');
 $imageUrl.addEventListener('input', function setImage(event) {
   $img.setAttribute('src', event.target.value);
 });
+
 const $entryForm = document.querySelector('#entry-form');
 $entryForm.addEventListener('submit', function submitForm(event) {
   event.preventDefault();
