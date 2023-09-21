@@ -18,6 +18,12 @@ $entryForm.addEventListener('submit', function submitForm(event) {
   data.nextEntryId++;
   $img.setAttribute('src', './images/placeholder-image-square.jpg');
   $entryForm.reset();
+
+  const $newDomTree = renderEntry(entryData);
+  const $unorderedList = document.querySelector('ul');
+  $unorderedList.prepend($newDomTree);
+  viewSwap('entries');
+  toggleNoEntries();
 });
 
 function renderEntry(entry) {
@@ -62,13 +68,14 @@ document.addEventListener(
   }
 );
 
+const $dataZero = document.querySelector('#data-zero');
 function toggleNoEntries() {
-  const $noEntries = document.querySelector('#no-entries');
-  if (data.entries === []) {
-    $noEntries.className = 'hidden';
+  if (data.entries.length === 0) {
+    $dataZero.setAttribute('class', '.idden');
+  } else {
+    $dataZero.setAttribute('class', '');
   }
 }
-toggleNoEntries();
 
 const $showEntryForm = document.querySelector("[data-view='entry-form']");
 const $showEntries = document.querySelector("[data-view='entries']");
@@ -87,6 +94,12 @@ function viewSwap(viewname) {
 const $entriesNav = document.querySelector('.nav');
 
 $entriesNav.addEventListener('click', function handleNavClick() {
-  const whichView = $showEntries.getAttribute('data-view');
-  viewSwap(whichView);
+  const entriesView = $showEntries.getAttribute('data-view');
+  viewSwap(entriesView);
+});
+
+const $newEntryNav = document.querySelector('.new');
+$newEntryNav.addEventListener('click', function HandleNavClick() {
+  const formView = $showEntryForm.getAttribute('data-view');
+  viewSwap(formView);
 });

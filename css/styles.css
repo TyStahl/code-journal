@@ -71,6 +71,7 @@ header.container {
   width: 3rem;
   border: 2px solid;
   border-radius: 5px;
+  padding: 0.5rem;
 }
 
 .nav {
