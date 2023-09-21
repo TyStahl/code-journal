@@ -11,10 +11,10 @@ const $newEntryNav = document.querySelector('.new');
 $imageUrl.addEventListener('input', function setImage(event) {
   $img.setAttribute('src', event.target.value);
 });
-
+let entryData = {};
 $entryForm.addEventListener('submit', function submitForm(event) {
   event.preventDefault();
-  const entryData = {
+  entryData = {
     title: $entryForm.elements[0].value,
     imageUrl: $entryForm.elements[1].value,
     notes: $entryForm.elements[2].value,
@@ -35,6 +35,7 @@ $entryForm.addEventListener('submit', function submitForm(event) {
 function renderEntry(entry) {
   const $listItem = document.createElement('li');
   $listItem.setAttribute('class', 'row');
+  $listItem.setAttribute('data-entry-id', entry.entryId);
 
   const $columnHalf1 = document.createElement('div');
   $columnHalf1.setAttribute('class', 'column-half');
@@ -46,16 +47,35 @@ function renderEntry(entry) {
 
   const $columnHalf2 = document.createElement('div');
   $columnHalf2.setAttribute('class', 'column-half');
-
   $listItem.appendChild($columnHalf2);
+
+  const $titleRow = document.createElement('div');
+  $titleRow.setAttribute('class', 'n-wrap');
+  $columnHalf2.appendChild($titleRow);
+
+  const $columnHalf3 = document.createElement('div');
+  $columnHalf3.setAttribute('class', 'column-half a-center');
+  $titleRow.appendChild($columnHalf3);
+
+  const $columnHalf4 = document.createElement('div');
+  $columnHalf4.setAttribute('class', 'column-half a-center j-e');
+  $titleRow.appendChild($columnHalf4);
 
   const $h3Title = document.createElement('h3');
   $h3Title.textContent = entry.title;
-  $columnHalf2.appendChild($h3Title);
+  $columnHalf3.appendChild($h3Title);
+
+  const $pencilIcon = document.createElement('i');
+  $pencilIcon.setAttribute('class', 'fa-solid fa-pencil');
+  $columnHalf4.appendChild($pencilIcon);
+
+  const $columnFull = document.createElement('div');
+  $columnFull.setAttribute('class', 'column-full');
+  $columnHalf2.appendChild($columnFull);
 
   const $pNotes = document.createElement('p');
   $pNotes.textContent = entry.notes;
-  $columnHalf2.appendChild($pNotes);
+  $columnFull.appendChild($pNotes);
 
   return $listItem;
 }
