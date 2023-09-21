@@ -1,11 +1,17 @@
 const $imageUrl = document.querySelector('.image-url');
 const $img = document.querySelector('img');
+const $unorderedList = document.querySelector('ul');
+const $showEntryForm = document.querySelector("[data-view='entry-form']");
+const $showEntries = document.querySelector("[data-view='entries']");
+const $dataZero = document.querySelector('#data-zero');
+const $entryForm = document.querySelector('#entry-form');
+const $entriesNav = document.querySelector('.nav');
+const $newEntryNav = document.querySelector('.new');
 
 $imageUrl.addEventListener('input', function setImage(event) {
   $img.setAttribute('src', event.target.value);
 });
 
-const $entryForm = document.querySelector('#entry-form');
 $entryForm.addEventListener('submit', function submitForm(event) {
   event.preventDefault();
   const entryData = {
@@ -21,7 +27,6 @@ $entryForm.addEventListener('submit', function submitForm(event) {
   $entryForm.reset();
 
   const $newDomTree = renderEntry(entryData);
-  const $unorderedList = document.querySelector('ul');
   $unorderedList.prepend($newDomTree);
   viewSwap('entries');
   toggleNoEntries();
@@ -36,8 +41,7 @@ function renderEntry(entry) {
   $listItem.appendChild($columnHalf1);
 
   const $img = document.createElement('img');
-  $img.setAttribute('src', entry.imageUrl);
-  // $img.setAttribute('src', 'https://archives.bulbagarden.net/media/upload/4/4a/0025Pikachu.png');
+  $img.setAttribute('src', entry.imageUrl, 'alt', 'your entry image');
   $columnHalf1.appendChild($img);
 
   const $columnHalf2 = document.createElement('div');
@@ -60,7 +64,6 @@ document.addEventListener(
   'DOMContentLoaded',
   function handleDOMContentLoaded(event) {
     let $journalEntry;
-    const $unorderedList = document.querySelector('ul');
 
     for (let i = 0; i < data.entries.length; i++) {
       $journalEntry = renderEntry(data.entries[i]);
@@ -72,7 +75,6 @@ document.addEventListener(
   }
 );
 
-const $dataZero = document.querySelector('#data-zero');
 function toggleNoEntries() {
   if (data.entries.length === 0) {
     $dataZero.setAttribute('class', '');
@@ -81,8 +83,6 @@ function toggleNoEntries() {
   }
 }
 
-const $showEntryForm = document.querySelector("[data-view='entry-form']");
-const $showEntries = document.querySelector("[data-view='entries']");
 function viewSwap(viewname) {
   if (viewname === 'entries') {
     $showEntries.className = '';
@@ -95,14 +95,11 @@ function viewSwap(viewname) {
   }
 }
 
-const $entriesNav = document.querySelector('.nav');
-
 $entriesNav.addEventListener('click', function handleNavClick() {
   const entriesView = $showEntries.getAttribute('data-view');
   viewSwap(entriesView);
 });
 
-const $newEntryNav = document.querySelector('.new');
 $newEntryNav.addEventListener('click', function HandleNavClick() {
   const formView = $showEntryForm.getAttribute('data-view');
   viewSwap(formView);
