@@ -67,6 +67,7 @@ function renderEntry(entry) {
 
   const $pencilIcon = document.createElement('i');
   $pencilIcon.setAttribute('class', 'fa-solid fa-pencil');
+  $pencilIcon.setAttribute('id', 'pencil');
   $columnHalf4.appendChild($pencilIcon);
 
   const $columnFull = document.createElement('div');
@@ -123,4 +124,27 @@ $entriesNav.addEventListener('click', function handleNavClick() {
 $newEntryNav.addEventListener('click', function HandleNavClick() {
   const formView = $showEntryForm.getAttribute('data-view');
   viewSwap(formView);
+});
+
+const $editEntry = document.querySelector('#new-entry');
+
+$unorderedList.addEventListener('click', function handleEdits(event) {
+  if (event.target.tagName === 'I') {
+    const closestE = event.target.closest('li');
+    const dataEntryId = closestE.getAttribute('data-entry-id');
+    const deId = Number(dataEntryId);
+
+    viewSwap('entry-form');
+
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === deId) {
+        data.editing = data.entries[i];
+      }
+    }
+  }
+  $entryForm.elements[0].value = data.editing.title;
+  $entryForm.elements[1].value = data.editing.imageUrl;
+  $entryForm.elements[2].value = data.editing.notes;
+
+  $editEntry.textContent = 'Edit Entry';
 });
