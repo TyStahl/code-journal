@@ -74,9 +74,9 @@ document.addEventListener(
 const $dataZero = document.querySelector('#data-zero');
 function toggleNoEntries() {
   if (data.entries.length === 0) {
-    $dataZero.setAttribute('class', '.hidden');
-  } else {
     $dataZero.setAttribute('class', '');
+  } else {
+    $dataZero.setAttribute('class', 'hidden');
   }
 }
 
