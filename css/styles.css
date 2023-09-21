@@ -1,9 +1,28 @@
-h1 {
-  margin-top: 0;
+.ul {
+  padding: 0;
+  list-style-type: none;
+  padding-inline-start: 0;
 }
 
 img {
   width: 100%;
+  border: 2px solid rgb(238, 238, 238);
+  border-radius: 5px;
+}
+
+.j-center {
+  display: flex;
+  justify-content: center;
+}
+
+.j-e {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.a-center {
+  display: flex;
+  align-items: center;
 }
 
 .image-title {
@@ -45,4 +64,23 @@ header.container {
   background-color: rgb(76, 38, 118);
   color: rgb(249, 244, 249);
   height: 4rem;
+}
+
+.new {
+  background-color: rgb(76, 38, 118);
+  color: rgb(249, 244, 249);
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.nav {
+  color: rgb(249, 244, 249);
+  height: 2rem;
+  width: 3rem;
+  padding: 0 2rem;
+}
+
+.n-wrap {
+  flex-wrap: nowrap;
 }
