@@ -30,6 +30,10 @@ $entryForm.addEventListener('submit', function submitForm(event) {
   $unorderedList.prepend($newDomTree);
   viewSwap('entries');
   toggleNoEntries();
+
+  // if (data.editing !== null){
+  // entryData.entryId = data.editing.entryId;
+  // }
 });
 
 function renderEntry(entry) {
@@ -142,6 +146,7 @@ $unorderedList.addEventListener('click', function handleEdits(event) {
       }
     }
   }
+
   $entryForm.elements[0].value = data.editing.title;
   $entryForm.elements[1].value = data.editing.imageUrl;
   $entryForm.elements[2].value = data.editing.notes;
