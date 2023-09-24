@@ -31,9 +31,17 @@ $entryForm.addEventListener('submit', function submitForm(event) {
   viewSwap('entries');
   toggleNoEntries();
 
-  // if (data.editing !== null){
-  // entryData.entryId = data.editing.entryId;
-  // }
+  if (data.editing !== null) {
+    entryData.entryId = data.editing.entryId;
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === entryData.entryId) {
+        entryData = data.editing;
+      }
+    }
+  }
+  const $edittedItemDomTree = renderEntry(entryData);
+  $newDomTree.replaceChild($edittedItemDomTree);
+  $editEntry.textContent = 'New Entry';
 });
 
 function renderEntry(entry) {
