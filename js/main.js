@@ -11,9 +11,11 @@ const $newEntryNav = document.querySelector('.new');
 $imageUrl.addEventListener('input', function setImage(event) {
   $img.setAttribute('src', event.target.value);
 });
+
 let entryData = {};
 $entryForm.addEventListener('submit', function submitForm(event) {
   event.preventDefault();
+
   entryData = {
     title: $entryForm.elements[0].value,
     imageUrl: $entryForm.elements[1].value,
@@ -21,27 +23,30 @@ $entryForm.addEventListener('submit', function submitForm(event) {
     entryId: data.nextEntryId,
   };
 
-  data.entries.unshift(entryData);
-  data.nextEntryId++;
-  $img.setAttribute('src', './images/placeholder-image-square.jpg');
-  $entryForm.reset();
+  if (data.editing === null) {
+    data.entries.unshift(entryData);
+    data.nextEntryId++;
+    $img.setAttribute('src', './images/placeholder-image-square.jpg');
+    $entryForm.reset();
 
-  const $newDomTree = renderEntry(entryData);
-  $unorderedList.prepend($newDomTree);
-  viewSwap('entries');
-  toggleNoEntries();
-
-  if (data.editing !== null) {
+    const $newDomTree = renderEntry(entryData);
+    $unorderedList.prepend($newDomTree);
+  } else if (data.editing !== null) {
     entryData.entryId = data.editing.entryId;
     for (let i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].entryId === entryData.entryId) {
-        entryData = data.editing;
+      if (data.entries[i].entryID === data.editing.entryId) {
+        data.entries[i] = entryData;
       }
     }
+    $editEntry.textContent = 'New Entry';
+    const $edittedItem = renderEntry(entryData);
+    $liToReplace.replaceWith($edittedItem);
+    // $unorderedList.replaceChild($edittedItemDomTree, $liToReplace);
+    // replace child needs 2nd argument, need to find tthe li with entry id to replace
   }
-  const $edittedItemDomTree = renderEntry(entryData);
-  $newDomTree.replaceChild($edittedItemDomTree);
-  $editEntry.textContent = 'New Entry';
+  data.editing = null;
+  viewSwap('entries');
+  toggleNoEntries();
 });
 
 function renderEntry(entry) {
@@ -133,16 +138,19 @@ $entriesNav.addEventListener('click', function handleNavClick() {
   viewSwap(entriesView);
 });
 
-$newEntryNav.addEventListener('click', function HandleNavClick() {
+$newEntryNav.addEventListener('click', function HandleNewNavClick() {
   const formView = $showEntryForm.getAttribute('data-view');
   viewSwap(formView);
+  $editEntry.textContent = 'New Entry';
 });
 
 const $editEntry = document.querySelector('#new-entry');
+let $liToReplace;
 
 $unorderedList.addEventListener('click', function handleEdits(event) {
   if (event.target.tagName === 'I') {
     const closestE = event.target.closest('li');
+    $liToReplace = closestE;
     const dataEntryId = closestE.getAttribute('data-entry-id');
     const deId = Number(dataEntryId);
 
