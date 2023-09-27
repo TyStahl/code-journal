@@ -146,6 +146,7 @@ $entriesNav.addEventListener('click', function handleNavClick() {
 $newEntryNav.addEventListener('click', function HandleNewNavClick() {
   const formView = $showEntryForm.getAttribute('data-view');
   viewSwap(formView);
+  $delete.setAttribute('class', 'hidden');
   $editEntry.textContent = 'New Entry';
 });
 
