@@ -16,7 +16,6 @@ $imageUrl.addEventListener('input', function setImage(event) {
 });
 
 let entryData = {};
-data.editing = null;
 $entryForm.addEventListener('submit', submitForm);
 
 function submitForm(event) {
@@ -183,12 +182,15 @@ $delete.addEventListener('click', function handleModal(event) {
 $modalForm.addEventListener('click', function handleConfirmOrCancel(event) {
   if (event.target.getAttribute('id') === 'cancel-button') {
     $newModal.setAttribute('class', 'hidden');
+    $entryForm.reset();
     viewSwap('entries');
   } else if (event.target.getAttribute('id') === 'confirm-button') {
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i] === data.editing) {
         data.entries.splice([i], 1);
         $liToReplace.remove();
+        data.editing = null;
+        $entryForm.reset();
         toggleNoEntries();
       }
     }
