@@ -82,5 +82,6 @@ header.container {
 }
 
 .n-wrap {
+  display: flex;
   flex-wrap: nowrap;
 }
