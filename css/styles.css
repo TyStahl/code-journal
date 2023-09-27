@@ -72,6 +72,7 @@ header.container {
   border: 2px solid;
   border-radius: 5px;
   padding: 0.5rem;
+  text-decoration: none;
 }
 
 .nav {
@@ -79,6 +80,7 @@ header.container {
   height: 2rem;
   width: 3rem;
   padding: 0 2rem;
+  text-decoration: none;
 }
 
 .n-wrap {
@@ -107,4 +109,25 @@ header.container {
   padding: 1rem;
   margin: 1rem;
   background-color: white;
+}
+
+#delete {
+  color: red;
+  text-decoration: none;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.s-b {
+  justify-content: space-between;
+}
+
+#cancel-button {
+  background-color: lightgrey;
+}
+
+#confirm-button {
+  background-color: red;
 }
