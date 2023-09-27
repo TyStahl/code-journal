@@ -41,12 +41,11 @@ $entryForm.addEventListener('submit', function submitForm(event) {
     $editEntry.textContent = 'New Entry';
     const $edittedItem = renderEntry(entryData);
     $liToReplace.replaceWith($edittedItem);
-    // $unorderedList.replaceChild($edittedItemDomTree, $liToReplace);
-    // replace child needs 2nd argument, need to find tthe li with entry id to replace
   }
   data.editing = null;
   viewSwap('entries');
   toggleNoEntries();
+  $entryForm.reset();
 });
 
 function renderEntry(entry) {
