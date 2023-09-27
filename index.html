@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <div id="new-modal" class="hidden">
+      <div class="modal-box">
+        <form id="modal-form">
+          <button id="cancel-button">Cancel</button>
+          <button id="confirm-button">Confirm</button>
+        </form>
+      </div>
+    </div>
     <header class="container">
       <div class="a-center n-wrap">
         <h1>Code Journal</h1>
@@ -51,7 +59,12 @@
             <textarea id="notes" class="notes"></textarea>
           </div>
           <div class="column-full button">
-            <button id="submit">Save</button>
+            <div>
+              <button id="delete" type="button" class="hidden">Delete</button>
+            </div>
+            <div>
+              <button id="submit" type="submit">Save</button>
+            </div>
           </div>
         </form>
       </div>

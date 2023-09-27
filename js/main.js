@@ -7,13 +7,19 @@ const $dataZero = document.querySelector('#data-zero');
 const $entryForm = document.querySelector('#entry-form');
 const $entriesNav = document.querySelector('.nav');
 const $newEntryNav = document.querySelector('.new');
+const $delete = document.querySelector('#delete');
+const $newModal = document.querySelector('#new-modal');
+const $modalForm = document.querySelector('#modal-form');
 
 $imageUrl.addEventListener('input', function setImage(event) {
   $img.setAttribute('src', event.target.value);
 });
 
 let entryData = {};
-$entryForm.addEventListener('submit', function submitForm(event) {
+data.editing = null;
+$entryForm.addEventListener('submit', submitForm);
+
+function submitForm(event) {
   event.preventDefault();
 
   entryData = {
@@ -44,9 +50,10 @@ $entryForm.addEventListener('submit', function submitForm(event) {
   }
   data.editing = null;
   viewSwap('entries');
+  $delete.setAttribute('class', 'hidden');
   toggleNoEntries();
   $entryForm.reset();
-});
+}
 
 function renderEntry(entry) {
   const $listItem = document.createElement('li');
@@ -154,6 +161,7 @@ $unorderedList.addEventListener('click', function handleEdits(event) {
     const deId = Number(dataEntryId);
 
     viewSwap('entry-form');
+    $delete.setAttribute('class', '');
 
     for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === deId) {
@@ -166,4 +174,25 @@ $unorderedList.addEventListener('click', function handleEdits(event) {
   }
 
   $editEntry.textContent = 'Edit Entry';
+});
+
+$delete.addEventListener('click', function handleModal(event) {
+  $newModal.setAttribute('class', '');
+});
+
+$modalForm.addEventListener('click', function handleConfirmOrCancel(event) {
+  if (event.target.getAttribute('id') === 'cancel-button') {
+    $newModal.setAttribute('class', 'hidden');
+    viewSwap('entries');
+  } else if (event.target.getAttribute('id') === 'confirm-button') {
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i] === data.editing) {
+        data.entries.splice([i], 1);
+        $liToReplace.remove();
+        toggleNoEntries();
+      }
+    }
+    $newModal.setAttribute('class', 'hidden');
+    viewSwap('entries');
+  }
 });
