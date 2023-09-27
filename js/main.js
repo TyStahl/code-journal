@@ -144,8 +144,8 @@ $newEntryNav.addEventListener('click', function HandleNewNavClick() {
 });
 
 const $editEntry = document.querySelector('#new-entry');
-let $liToReplace;
 
+let $liToReplace;
 $unorderedList.addEventListener('click', function handleEdits(event) {
   if (event.target.tagName === 'I') {
     const closestE = event.target.closest('li');
@@ -160,11 +160,10 @@ $unorderedList.addEventListener('click', function handleEdits(event) {
         data.editing = data.entries[i];
       }
     }
+    $entryForm.elements[0].value = data.editing.title;
+    $entryForm.elements[1].value = data.editing.imageUrl;
+    $entryForm.elements[2].value = data.editing.notes;
   }
-
-  $entryForm.elements[0].value = data.editing.title;
-  $entryForm.elements[1].value = data.editing.imageUrl;
-  $entryForm.elements[2].value = data.editing.notes;
 
   $editEntry.textContent = 'Edit Entry';
 });
